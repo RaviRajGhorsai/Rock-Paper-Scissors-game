@@ -1,13 +1,15 @@
 import random
 end = 'y'
-while(end != 'n'):
-    user_action = input("Enter your move:  ")
 
+while(end != 'n'):
     possible_action = ["rock", "paper", "scissors"]
+    user_action = None
+    while user_action not in possible_action:
+        user_action = input("Enter your move:  ").lower()
 
     computer_action = random.choice(possible_action)
 
-    print(f"You choose {user_action} and computer choose {computer_action}.\n")
+    print(f"Player: {user_action}\ncomputer: {computer_action}.\n")
 
     if user_action == computer_action:
         print(f"Both player selected {user_action} so it's a tie.\n")
@@ -26,4 +28,4 @@ while(end != 'n'):
             print("Scissors cuts paper. So you win!!\n")
         else:
             print("Rock smashes scissors. So you lose..")
-    end = input("Do you want to play again: Y/N:  ")
+    end = input("Do you want to play again: Y/N:  ").lower()
